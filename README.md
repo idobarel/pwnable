@@ -11,3 +11,4 @@ my pwnable journy + writeups.
 - ~leg~: I will not do this one.
 - mistake
 - shellcode
+- ~coin1~: I will not do this one.
