@@ -12,3 +12,4 @@ my pwnable journy + writeups.
 - mistake
 - shellcode
 - ~coin1~: I will not do this one.
+- blackjack
