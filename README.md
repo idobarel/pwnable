@@ -6,3 +6,4 @@ my pwnable journy + writeups.
 - bof
 - flag
 - passcode
+- random
