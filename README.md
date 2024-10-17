@@ -8,3 +8,5 @@ my pwnable journy + writeups.
 - passcode
 - random
 - ~input~: I will not do this one.
+- ~leg~: I will not do this one.
+- mistake
