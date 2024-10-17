@@ -14,3 +14,4 @@ my pwnable journy + writeups.
 - ~coin1~: I will not do this one.
 - blackjack
 - lotto
+- cmd1
