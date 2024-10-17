@@ -152,6 +152,8 @@ readelf -r passcode
 | `printf`      | `0x0804a000` |
 | `scanf`       | `0x0804a020` |
 | `fflush`      | `0x0804a004` |
+
+
 Remember that our input can't contain any null bytes (`\x00`) or any spaces (`\x20`).
 the `printf` contains a null byte, and the `scanf` contains a space. which leaving us with the `fflush` function.
 Let's build the exploit!
