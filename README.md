@@ -7,3 +7,4 @@ my pwnable journy + writeups.
 - flag
 - passcode
 - random
+- ~input~: I will not do this one.
