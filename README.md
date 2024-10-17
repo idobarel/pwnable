@@ -10,3 +10,4 @@ my pwnable journy + writeups.
 - ~input~: I will not do this one.
 - ~leg~: I will not do this one.
 - mistake
+- shellcode
