@@ -4,3 +4,4 @@ my pwnable journy + writeups.
 - fd
 - collison
 - bof
+- flag
