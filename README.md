@@ -15,3 +15,4 @@ my pwnable journy + writeups.
 - blackjack
 - lotto
 - cmd1
+- cmd2
