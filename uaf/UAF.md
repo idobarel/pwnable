@@ -147,7 +147,8 @@ set print asm-demangle on # to show functions names
 disass main
 ```
 The code is huge, so let's take it slow:
-![[Pasted image 20241018064949.png]]
+![asm](https://github.com/user-attachments/assets/59d44706-5fb7-461a-87ed-120e19bdc612)
+
 Let's set a break point on the creation of `Man` - `0x0000000000400f13`
 ```sh
 break *0x0000000000400f13
@@ -157,28 +158,33 @@ and run the program
 r
 ```
 And we got to the `breakpoint`:
-![[Pasted image 20241018065226.png]]
+![breakpoint](https://github.com/user-attachments/assets/916ebf14-87d2-4f8a-9db5-f786b43bf98b)
+
 Nice! we can use the `vis` command to check the heap!
 ```sh
 vis
 ```
 
-![[Pasted image 20241018065341.png]]
+![vis](https://github.com/user-attachments/assets/2fb1689e-9679-4d36-bd4a-3d9b61c190cd)
+
 And we can see the word `Jack` which means we see the bytes of the object `M`!
 let's press `n` and `vis` again:
-![[Pasted image 20241018065516.png]]
+![vis_addr](https://github.com/user-attachments/assets/73be3fee-54c7-4a3b-90e5-28171c6cdf40)
+
 Looks like another chunk was added! let's see what is on that chunk!
 ```sh
 x/10x *0x0000000000401570
 ```
-![[Pasted image 20241018065611.png]]
+![vtable](https://github.com/user-attachments/assets/dbba1a57-d2ab-49da-90d2-94dd61a6a500)
+
 Looks like the address to `Human`? looks like it shows all the virtual functions of the object...
 ```cpp
 virtual void give_shell()
 virtual void introduce()
 ```
 let's do some research!
-![[Pasted image 20241018065931.png]]
+![chat_gpt](https://github.com/user-attachments/assets/66491e26-0de6-4490-965d-598c44828480)
+
 ## `VTABLE`s
 I don't want to waste a lot of time explaining this, but basically it is a table just like the `GOT` which contains mapping for virtual function to the address. when you invoke a virtual method on an object, this happens:
 - the program checks the `vtable`
@@ -208,7 +214,8 @@ c
 ```
 **notice that we need to fill the buffer twice**
 We hit the `breakpoint`! let's run `vis`:
-![[Pasted image 20241018072026.png]]
+![vis_last](https://github.com/user-attachments/assets/9d37a18a-d665-402e-b850-7b78ad9161c4)
+
 looking on the same offsets, we now have `AAAAA` where the address to the `vtable` was!
 Amazing!
 ## Exploit
@@ -240,7 +247,8 @@ python3 payload.py > /tmp/a
 To get the file ready.
 
 And to exploit:
-![[Pasted image 20241018073127.png]]
+![manual_exploit](https://github.com/user-attachments/assets/7ebc8476-0409-47aa-aa54-f31fab9d5cb1)
+
 And we got a shell.
 Let's develop an exploit script.
 ## Exploitation script
@@ -288,7 +296,8 @@ def main():
 if __name__ == "__main__":
 	main()
 ```
+![exploit](https://github.com/user-attachments/assets/159ac6b7-9058-4524-9932-c5e9e91715f1)
 
-![](Pasted image 20241018075307.png)
+
 
 Good Game!
