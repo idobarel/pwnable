@@ -208,7 +208,7 @@ c
 ```
 **notice that we need to fill the buffer twice**
 We hit the `breakpoint`! let's run `vis`:
-![img](Pasted image 20241018072026.png)
+![img]([Pasted image 20241018072026.png](https://raw.githubusercontent.com/idobarel/pwnable/refs/heads/main/uaf/Pasted%20image%2020241018072026.png))
 looking on the same offsets, we now have `AAAAA` where the address to the `vtable` was!
 Amazing!
 ## Exploit
