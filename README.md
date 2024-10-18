@@ -17,3 +17,4 @@ my pwnable journy + writeups.
 - cmd1
 - cmd2
 - uaf
+- ~memcpy~: I will not do this one.
