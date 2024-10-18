@@ -208,7 +208,7 @@ c
 ```
 **notice that we need to fill the buffer twice**
 We hit the `breakpoint`! let's run `vis`:
-![[Pasted image 20241018072026.png]]
+![img](Pasted image 20241018072026.png)
 looking on the same offsets, we now have `AAAAA` where the address to the `vtable` was!
 Amazing!
 ## Exploit
