@@ -66,7 +66,10 @@ r
 aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa
 ```
 We get a `segfault`!
-![[write-what-where.png]]
+
+![write-what-where](https://github.com/user-attachments/assets/6187d154-8ff7-401a-82ce-bba2d46c28df)
+
+
 Looking at the data, we can see the `segfault` was on `unlink+29` when the program tries to write the value of `edx` which is `haaa` to the memory address @ `EAX + 4` (`gaaa` -> `0x61616167` -> `0x61616167 + 4` -> `0x6161616b`). We found a Write-What-Where primitive! 
 We can now use those commands to check what input is being written where:
 ```bash
@@ -165,7 +168,10 @@ python3 local_exp.py
 ```
 A new windows is opened with `gdb` running, and hitting the `breakpoint` we specified.
 We can see in the `pwndbg` context that the return pointer successfully changed to `shell` address!
-![[shell.png]]
+
+![shell](https://github.com/user-attachments/assets/14c67ddb-d015-48d6-bd14-132de4023d9a)
+
+
 For some reason, when I press `c` to `continue` the program is crushing, although it is already in the function `shell`. I decided to run it on the server.
 **NOTICE, after some checking and errors looks like the padding on the `pwnable` server needs to be `12` chars instead of `20` (you can use `pwn cyclic` to check that)** So let's re-write the exploit!
 ```python
