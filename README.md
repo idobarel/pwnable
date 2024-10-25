@@ -20,3 +20,4 @@ my pwnable journy + writeups.
 - ~memcpy~: I will not do this one.
 - asm
 - unlink
+- blukat
