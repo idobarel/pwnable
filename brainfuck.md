@@ -51,9 +51,10 @@ int main(void)
 }
 ```
 Doesn't look vulnerable...
-It calls `do_brainfuck` on each char tho. Let's take a look:
+- setting `p = tape;`
+- takes a string of 1024 chars
+- It calls `do_brainfuck` on each char tho. Let's take a look:
 ```C
-
 void do_brainfuck(char param)
 
 {
@@ -143,7 +144,7 @@ read the shit the program is yelling:
 ```python
 p.recvuntil(b"type some brainfuck instructions except [ ]\n")
 ```
-now let's build our payload, remember we have 4 parts:
+as we know, the `tape` symbol is the buffer starting location. now let's build our payload, remember we have 4 parts:
 - leaking the address of `fgets`
 - changing the got: `fgets` -> `system`
 - changing the got: `memset` -> `gets`
