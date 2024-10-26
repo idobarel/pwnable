@@ -112,7 +112,7 @@ let's look at the functions we are using:
 So my idea is:
 - leak the `fgets` function address (from the `GOT`) to get the offset.
 - use the offset to calculate `system` function address.
-- change the `GOT` table so `fgets` will point to system - will allow us to run what command which is in the buffer.
+- change the `GOT` table so `fgets` will point to `system` - will allow us to run what command which is in the buffer.
 - change the `GOT` table so `memset` will point to `gets` - will allow us to change the buffer.
 - change the `GOT` table so `putchar` will point to `main` - will allow us to use our changed values to exploit the program.
 
